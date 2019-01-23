@@ -142,3 +142,57 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+body {
+  padding-bottom: .8rem;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left img {
+  max-width: .6rem;
+  height: .6rem;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left mui-checkbox {
+  text-align: center;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left input {
+  position: static;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left input::before {
+  color: hotpink;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left input[type='checkbox']:checked::before {
+  color: hotpink;
+}
+#main .mui-table-view .mui-table-view-cell a .mui-media-body {
+  line-height: .22rem;
+  padding-left: .1rem;
+}
+#main .mui-table-view .mui-table-view-cell a .mui-media-body .product-name {
+  white-space: normal;
+}
+#main .mui-table-view .mui-table-view-cell a .mui-media-body .product-prce span {
+  color: red;
+}
+#main .mui-table-view .mui-table-view-cell a .mui-media-body .product-prce del {
+  color: #ccc;
+}
+#main .mui-table-view .mui-table-view-cell a .mui-media-body .product-params {
+  display: flex;
+  justify-content: space-between;
+}
+#order {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: .45rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  line-height: .33rem;
+  border-top: 1px solid #ccc;
+  z-index: 999;
+}
+#order p {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: red;
+  padding-left: .1rem;
+}

@@ -1,0 +1,71 @@
+@import 'base.less';
+
+body {
+    padding-bottom: .8rem;
+}
+#main {
+    .mui-table-view {
+        .mui-table-view-cell {
+            a {
+                &.mui-navigate-right {
+                    .mui-pull-left {
+                        img {
+                            max-width: .6rem;
+                            height: .6rem;
+                        }
+                        mui-checkbox {
+                            text-align: center;
+                        }
+                        input {
+                            position: static;
+                            &::before {
+                                color: hotpink;
+                            }
+                        }
+                        input[type='checkbox']:checked::before {
+                            color: hotpink;
+                        }
+                    }
+                }
+                .mui-media-body {
+                    line-height: .22rem;
+                    padding-left: .1rem;
+                    .product-name {
+                        white-space: normal;
+                    }
+                    .product-prce {
+                        span {
+                            color: red;
+                        }
+                        del {
+                            color: #ccc;
+                        }
+                    }
+                    .product-params {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#order {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: .45rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    line-height: .33rem;
+    border-top: 1px solid #ccc;
+    z-index: 999;
+    p {
+        margin-bottom: 0;
+        font-weight: bold;
+        color: red;
+        padding-left: .1rem;
+    }
+}

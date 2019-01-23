@@ -1,0 +1,54 @@
+@import 'base.less';
+
+
+#main {
+    // #slide {
+    //     height: 3rem;
+    //     img {
+    //         height: 3rem;
+    //         width: 100%;
+    //     }
+    // }
+    #detail {
+       p {
+           color: #333;
+           span {
+               color: red;
+               font-weight: bold;
+           }
+           strong {
+            line-height: .2rem;
+           }
+       }
+       .product-size {
+           vertical-align: middle;
+           button {
+               vertical-align: middle;
+               margin-bottom: .05rem;
+           }
+       }
+       .mui-table-view-cell:after {
+           left: 0;
+           background-color: #888;
+       }
+   }
+}
+
+#footer {
+    background-color: #ccc;
+    .fa-shopping-cart {
+        font-size: .2rem;
+        color: #333;
+        line-height: .46rem;
+    }
+    .mui-row {
+        >div {
+            &:nth-child(n+2) {
+                padding: .05rem
+            }
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

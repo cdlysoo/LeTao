@@ -23,7 +23,7 @@
 <body>
     <!-- 头部区域 -->
     <header id="header">
-        <a href="#" class="left fa fa-arrow-left"></a>
+        <a href="index.html" class="left fa fa-arrow-left"></a>
         <form action="#" class="center">
             <input type="search" placeholder="请输入要搜索的内容">
         </form>
@@ -47,6 +47,8 @@
         <div class="category-right">
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
+                    <!-- mui-row是真实滚动内容 放到mui-scroll容器里面 -->
+                    <!--这里放置真实显示的DOM内容-->
                     <div class="mui-row">
                         <div class="mui-col-xs-4">
                             <a href="#">
@@ -88,24 +90,60 @@
                 </div>
             </div>
         </div>
-        
+
     </main>
     <!-- 底部区域 -->
     <footer id="footer">
         <div class="mui-row">
             <!-- .mui-col-xs-3*4>a[href="#"]>i.fa.fa-home+span{首页} -->
-            <div class="mui-col-xs-3"><a href="index.html" class="active"><i class="fa fa-home"></i><span>首页</span></a></div>
-            <div class="mui-col-xs-3"><a href="category.html"><i class="fa fa-bars"></i><span>分类</span></a></div>
+            <div class="mui-col-xs-3"><a href="index.html"><i class="fa fa-home"></i><span>首页</span></a></div>
+            <div class="mui-col-xs-3"><a href="category.html" class="active"><i class="fa fa-bars"></i><span>分类</span></a></div>
             <div class="mui-col-xs-3"><a href="cart.html"><i class="fa fa-shopping-cart"></i><span>购物车</span></a></div>
             <div class="mui-col-xs-3"><a href="user.html"><i class="fa fa-user"></i><span>个人中心</span></a></div>
         </div>
     </footer>
+    <!-- 添加一个遮罩层 -->
+    <div id="mask">
+
+    </div>
+
+    <!-- categoryLeftTpl  分类左侧的模板     -->
+    <script id="categoryLeftTpl" type="text/html">
+        <!-- total和rows都是 data对象的一级属性 默认就是data取得的 在模板里面千万不能写data.total data.rows -->
+        <!-- 但是里面的二级属性 dategoryName data对象里面都rows数组里面对象的属性 必须要点出来 -->
+        <!-- total也是数据对象里面的属性 但是值是一个数字 可以直接使用不用遍历 -->
+
+        <!-- {{ total }} -->
+        <!-- rows的对象里面属性 但是值是一个数组 就需要遍历 -->
+        {{ each rows value index }}
+        <!-- 三元表达式 判断 index 是否等于0 如果等于0 返回active 不等于0 返回空 -->
+        <!-- data-id = "{{value.id}}" 把左侧分类数据里面的id绑定到a标签的自定义属性身上  -->
+        <li class="{{index == 0 ? 'active' : ''}}"><a href="#" data-id="{{ value.id }}">{{ value.categoryName }}</a></li> 
+        {{ /each }}
+    </script>
+    <!-- categoryRightTpl 分类右侧的模板 -->
+    <script id="categoryRightTpl" type="text/html">
+        {{ if rows.length > 0 }}
+            {{ each rows value }}
+                <div class="mui-col-xs-4">
+                    <a href="#">
+                        <img src="{{ value.brandLogo }}" alt="">
+                        <p>{{ value.brandName }}</p>
+                    </a>
+                </div>
+            {{ /each }}
+        {{ else }}
+            <p>此分类没有品牌</p>
+        {{ /if }}
+    </script>
+
     <!-- 1. 引入MUI的js -->
     <script src="lib/mui/js/mui.js"></script>
     <!-- 2. 引入zepto 获取元素 发送ajax请求 -->
     <script src="lib/zepto/zepto.min.js"></script>
     <!-- 3. 引入模板引擎的JS  注意引入template-web.js-->
     <script src="lib/artTemplate/template-web.js"></script>
+    <script src="js/loading.js"></script>
     <!-- 4. 引入自己的JS -->
     <script src="js/category.js"></script>
 </body>
